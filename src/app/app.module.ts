@@ -31,6 +31,8 @@ import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProfileComponent } from './components/dashboard/profile/profile.component';
 import { UserEffects } from './store/effects/user.effects';
+import { AuthGuard } from './guard/auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -63,6 +65,7 @@ import { UserEffects } from './store/effects/user.effects';
   providers: [
     AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true},
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -34,13 +34,13 @@ export class HttpConfigInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
-          console.log('event--->>>', event);
+          //console.log('event--->>>', event);
         }
         return event;
       }),
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
-          this.router.navigateByUrl('/').then();
+          this.router.navigateByUrl('/registro').then();
         }
         return throwError(() => new Error(/*error*/));
       }));

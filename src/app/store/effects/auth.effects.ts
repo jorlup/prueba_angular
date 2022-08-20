@@ -32,7 +32,7 @@ export class AuthEffects {
           this.authService.signUp(action.params).pipe(
             tap((tokens) => {
               localStorage.setItem('accessToken', tokens.accessToken);
-              this.router.navigateByUrl('/profile').then();
+              this.router.navigateByUrl('/').then();
             }),
             //tap(() => this.store$.dispatch(userActions.GetProfile())),
             map(() => userActions.GetProfile()),
