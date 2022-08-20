@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { ResetUser } from 'src/app/store/actions/user.actions';
+import { GetProfile, ResetUser } from 'src/app/store/actions/user.actions';
 import { isUserLoading, userData } from 'src/app/store/selectors/user.selectors';
 
 @Component({
@@ -16,7 +16,9 @@ export class ProfileComponent implements OnInit {
   globalLoading$ = this.store$.pipe(select(isUserLoading));
   userData$ = this.store$.select(userData);
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store$.dispatch(GetProfile());
+  }
   onSalir() {
     localStorage.removeItem('accessToken');
     this.store$.dispatch(ResetUser());
