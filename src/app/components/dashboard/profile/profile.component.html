@@ -13,27 +13,24 @@
         </div>
       </div>
     </div>
-    <div class="text-center mt-12">
+    <div class="text-center mt-12" *ngIf="userData$ | async as user">
       <h3
         class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2"
       >
-        Hola, Jenna Stones
+        Hola, {{user.nombre}} {{user.apellido}}
       </h3>
       <div
         class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase"
       >
         <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
-        Bienvenida a la Plataforma
+        Bienvenido a la Plataforma
       </div>
     </div>
     <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
       <div class="flex flex-wrap justify-center">
         <div class="w-full lg:w-9/12 px-4">
           <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-            An artist of considerable range, Jenna the name taken by
-            Melbourne-raised, Brooklyn-based Nick Murphy writes, performs and
-            records all of his own music, giving it a warm, intimate feel with a
-            solid groove structure. An artist of considerable range.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta lobortis tincidunt. Duis pretium auctor ultricies. In accumsan tortor quis mattis efficitur. Praesent mollis arcu non mollis suscipit. Pellentesque vel risus vitae leo egestas molestie. Etiam consequat quam sit amet iaculis congue. Nullam id nulla libero. Curabitur eu vestibulum libero. Fusce imperdiet placerat volutpat. Sed vitae porttitor enim, mattis scelerisque mi. Praesent id ex eu quam fermentum rhoncus vel porta arcu. Ut sit amet ullamcorper arcu, ac scelerisque lectus. Cras bibendum scelerisque dolor, ac sollicitudin urna scelerisque non. Donec vitae lacus sit amet turpis hendrerit finibus nec eu sem. Nunc eu imperdiet orci.
           </p>
         </div>
         <p-button label="Salir" (click)="onSalir()"></p-button>

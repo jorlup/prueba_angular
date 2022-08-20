@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { AuthService } from 'src/app/services/auth.service';
 import { ResetUser } from 'src/app/store/actions/user.actions';
-import { isUserLoading } from 'src/app/store/selectors/user.selectors';
+import { isUserLoading, userData } from 'src/app/store/selectors/user.selectors';
 
 @Component({
   selector: 'app-profile',
@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   constructor(private authService: AuthService, private store$: Store, private router: Router) { }
 
   globalLoading$ = this.store$.pipe(select(isUserLoading));
+  userData$ = this.store$.select(userData);
 
   ngOnInit(): void {
   }

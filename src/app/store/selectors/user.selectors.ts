@@ -8,3 +8,5 @@ export const isUserLoading = createSelector(
   userState,
   (state: UserState) => state.status === Statuses.LOADING
 );
+
+export const userData = createSelector(userState, user => user.data);
