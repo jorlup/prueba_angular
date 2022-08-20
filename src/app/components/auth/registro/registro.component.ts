@@ -30,7 +30,7 @@ export class RegistroComponent implements OnInit {
       apellido: ['', Validators.required],
       edad: ['', Validators.required],
       sexo: ['', Validators.required],
-      embarazo_lactancia: ['', Validators.required],
+      embarazo_lactancia: [false, Validators.required],
       fecha_nacimiento: ['', Validators.required],
       teléfono: ['', [Validators.required]],
     },
