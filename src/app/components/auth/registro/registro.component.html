@@ -1,0 +1,55 @@
+<p-toast></p-toast>
+<p-card header="Registro" class="col-8" [style]="{}" styleClass="sm:col-12 md:col-8 lg:col-6 p-card-shadow shadow-5 min-w-0 break-words mx-auto -mt-64">
+    <form class="sign-up-form" (keyup.enter)="registro()" (ngSubmit)="registro()" [formGroup]="registroForm" autocomplete="off">
+        <div class="grid p-fluid">
+            <div class="field col-12">
+                <label for="nombre">Nombre</label>
+                <input type="text" pInputText inputId="nombre" formControlName="nombre"/>
+                <small *ngIf="registroForm.get('nombre')?.invalid && registroForm.get('nombre')?.touched" class="p-error block">Campo requerido</small>
+            </div>
+            <div class="field col-12">
+                <label for="apellido">Apellido</label>
+                <input type="text" pInputText inputId="apellido" formControlName="apellido"/>
+                <small *ngIf="registroForm.get('apellido')?.invalid && registroForm.get('apellido')?.touched" class="p-error block">Campo requerido</small>
+            </div>
+            <div class="field col-12">
+                <label for="edad">Edad</label>
+                <p-inputNumber inputId="edad"  formControlName="edad">
+                </p-inputNumber>
+                <small *ngIf="registroForm.get('edad')?.invalid && registroForm.get('edad')?.touched" class="p-error block">Campo requerido</small>
+            </div>
+            <div class="field col-12">
+                <h6 class="mb-1">Sexo</h6>
+                <div class="field-radiobutton">
+                    <label for="Masculino">masculino</label>
+                    <p-radioButton name="sexo" value="masculino" formControlName="sexo" inputId="masculino"></p-radioButton>
+                </div>
+                <div class="field-radiobutton">
+                    <label for="femenino">Femenino</label>
+                    <p-radioButton name="sexo" value="femenino" formControlName="sexo" inputId="femenino"></p-radioButton>
+                </div>
+            </div>
+
+            <div class="field col-12">
+                <h6 class="mb-1">Embarazo o Lactancia?</h6>
+                <p-inputSwitch formControlName="embarazo_lactancia" inputId="embarazo_lactancia"></p-inputSwitch>
+                <small *ngIf="registroForm.errors?.['embarazoError'] && (registroForm.touched || registroForm.dirty)" class="p-error block">No esta permitido embarazos en hombres</small>
+                
+            </div>
+            
+            <div class="field col-12">
+                <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                <p-calendar formControlName="fecha_nacimiento" inputId="fecha_nacimiento"></p-calendar>
+                <small *ngIf="registroForm.get('fecha_nacimiento')?.invalid && registroForm.get('fecha_nacimiento')?.touched" class="p-error block">Campo requerido</small>
+            </div>
+
+            <div class="field col-12">
+                <label for="teléfono">Teléfono</label>
+                <p-inputMask inputId="teléfono" formControlName="teléfono" mask="+99 (999) 999-999"></p-inputMask>
+                <small *ngIf="registroForm.get('teléfono')?.invalid && registroForm.get('teléfono')?.touched" class="p-error block">Campo requerido</small>
+            </div>
+
+            <p-button label="Registrar" type="submit" [disabled]="registroForm.invalid" class="mb-2"></p-button>
+        </div>
+    </form>
+</p-card>
